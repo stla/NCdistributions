@@ -11,15 +11,16 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
 // rcpp_pt
-double rcpp_pt(double q, double nu, double delta);
-RcppExport SEXP _NCdistributions_rcpp_pt(SEXP qSEXP, SEXP nuSEXP, SEXP deltaSEXP) {
+NumericVector rcpp_pt(NumericVector q, double nu, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_pt(SEXP qSEXP, SEXP nuSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_pt(q, nu, delta));
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_pt(q, nu, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -159,7 +160,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_NCdistributions_rcpp_pt", (DL_FUNC) &_NCdistributions_rcpp_pt, 3},
+    {"_NCdistributions_rcpp_pt", (DL_FUNC) &_NCdistributions_rcpp_pt, 4},
     {"_NCdistributions_rcpp_qt", (DL_FUNC) &_NCdistributions_rcpp_qt, 3},
     {"_NCdistributions_rcpp_pchisq", (DL_FUNC) &_NCdistributions_rcpp_pchisq, 3},
     {"_NCdistributions_rcpp_pchisq_upper", (DL_FUNC) &_NCdistributions_rcpp_pchisq_upper, 3},

@@ -13,13 +13,29 @@ using namespace Rcpp;
 //}
 
 // [[Rcpp::export]]
-double rcpp_pt(double q, double nu, double delta){
-  return boost::math::cdf(boost::math::non_central_t(nu, delta), q);
+NumericVector rcpp_pt(NumericVector q, double nu, double delta, bool lower){
+  int n = q.size();
+  NumericVector out(n);
+  if(lower) {
+    for(int i = 0; i < n; i++) {
+      out(i) = boost::math::cdf(boost::math::non_central_t(nu, delta), q(i));
+    }
+  } else {
+    for(int i = 0; i < n; i++) {
+      out(i) = boost::math::cdf(boost::math::complement(boost::math::non_central_t(nu, delta), q(i)));
+    }
+  }
+  return out;
 }
 
 // [[Rcpp::export]]
-double rcpp_qt(double p, double nu, double delta){
-  return boost::math::quantile(boost::math::non_central_t(nu, delta), p);
+NumericVector rcpp_qt(NumericVector p, double nu, double delta){
+  int n = p.size();
+  NumericVector out(n);
+  for(int i = 0; i < n; i++) {
+    out(i) = boost::math::quantile(boost::math::non_central_t(nu, delta), p(i));
+  }
+  return out;
 }
 
 // [[Rcpp::export]]
