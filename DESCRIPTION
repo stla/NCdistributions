@@ -1,14 +1,17 @@
-Package: NCdistributions
 Type: Package
-Title: What the Package Does in One 'Title Case' Line
+Package: NCdistributions
+Title: Non-Central Distributions
 Version: 1.0
 Date: 2022-09-28
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: One paragraph description of what the package does as one or
-        more full sentences.
+Author: Stéphane Laurent
+Maintainer: Stéphane Laurent <laurent_step@outlook.fr>
+Description: Distribution functions and quantiles functions of non-central
+    distributions from the 'Boost' C++ library.
 License: GPL-3
-Imports: Rcpp (>= 1.0.9)
-LinkingTo: Rcpp, BH
+Imports: 
+    Rcpp (>= 1.0.9)
+LinkingTo: 
+    BH,
+    Rcpp
 Encoding: UTF-8
 RoxygenNote: 7.2.1
