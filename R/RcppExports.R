@@ -5,20 +5,16 @@ rcpp_pt <- function(q, nu, delta, lower) {
     .Call('_NCdistributions_rcpp_pt', PACKAGE = 'NCdistributions', q, nu, delta, lower)
 }
 
-rcpp_qt <- function(p, nu, delta) {
-    .Call('_NCdistributions_rcpp_qt', PACKAGE = 'NCdistributions', p, nu, delta)
+rcpp_qt <- function(p, nu, delta, lower) {
+    .Call('_NCdistributions_rcpp_qt', PACKAGE = 'NCdistributions', p, nu, delta, lower)
 }
 
-rcpp_pchisq <- function(q, nu, delta) {
-    .Call('_NCdistributions_rcpp_pchisq', PACKAGE = 'NCdistributions', q, nu, delta)
+rcpp_pchisq <- function(q, nu, delta, lower) {
+    .Call('_NCdistributions_rcpp_pchisq', PACKAGE = 'NCdistributions', q, nu, delta, lower)
 }
 
-rcpp_pchisq_upper <- function(q, nu, delta) {
-    .Call('_NCdistributions_rcpp_pchisq_upper', PACKAGE = 'NCdistributions', q, nu, delta)
-}
-
-rcpp_qchisq <- function(p, nu, delta) {
-    .Call('_NCdistributions_rcpp_qchisq', PACKAGE = 'NCdistributions', p, nu, delta)
+rcpp_qchisq <- function(p, nu, delta, lower) {
+    .Call('_NCdistributions_rcpp_qchisq', PACKAGE = 'NCdistributions', p, nu, delta, lower)
 }
 
 rcpp_chisq_ncp <- function(nu, q, p) {
@@ -29,19 +25,19 @@ rcpp_chisq_nu <- function(ncp, q, p) {
     .Call('_NCdistributions_rcpp_chisq_nu', PACKAGE = 'NCdistributions', ncp, q, p)
 }
 
-rcpp_pf <- function(q, nu1, nu2, ncp) {
-    .Call('_NCdistributions_rcpp_pf', PACKAGE = 'NCdistributions', q, nu1, nu2, ncp)
+rcpp_pf <- function(q, nu1, nu2, delta, lower) {
+    .Call('_NCdistributions_rcpp_pf', PACKAGE = 'NCdistributions', q, nu1, nu2, delta, lower)
 }
 
-rcpp_qf <- function(p, nu1, nu2, ncp) {
-    .Call('_NCdistributions_rcpp_qf', PACKAGE = 'NCdistributions', p, nu1, nu2, ncp)
+rcpp_qf <- function(p, nu1, nu2, delta, lower) {
+    .Call('_NCdistributions_rcpp_qf', PACKAGE = 'NCdistributions', p, nu1, nu2, delta, lower)
 }
 
-rcpp_pbeta <- function(q, a, b, ncp) {
-    .Call('_NCdistributions_rcpp_pbeta', PACKAGE = 'NCdistributions', q, a, b, ncp)
+rcpp_pbeta <- function(q, a, b, delta, lower) {
+    .Call('_NCdistributions_rcpp_pbeta', PACKAGE = 'NCdistributions', q, a, b, delta, lower)
 }
 
-rcpp_qbeta <- function(p, a, b, ncp) {
-    .Call('_NCdistributions_rcpp_qbeta', PACKAGE = 'NCdistributions', p, a, b, ncp)
+rcpp_qbeta <- function(p, a, b, delta, lower) {
+    .Call('_NCdistributions_rcpp_qbeta', PACKAGE = 'NCdistributions', p, a, b, delta, lower)
 }
 

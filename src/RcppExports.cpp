@@ -25,54 +25,44 @@ BEGIN_RCPP
 END_RCPP
 }
 // rcpp_qt
-double rcpp_qt(double p, double nu, double delta);
-RcppExport SEXP _NCdistributions_rcpp_qt(SEXP pSEXP, SEXP nuSEXP, SEXP deltaSEXP) {
+NumericVector rcpp_qt(NumericVector p, double nu, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_qt(SEXP pSEXP, SEXP nuSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_qt(p, nu, delta));
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_qt(p, nu, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 // rcpp_pchisq
-double rcpp_pchisq(double q, double nu, double delta);
-RcppExport SEXP _NCdistributions_rcpp_pchisq(SEXP qSEXP, SEXP nuSEXP, SEXP deltaSEXP) {
+NumericVector rcpp_pchisq(NumericVector q, double nu, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_pchisq(SEXP qSEXP, SEXP nuSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_pchisq(q, nu, delta));
-    return rcpp_result_gen;
-END_RCPP
-}
-// rcpp_pchisq_upper
-double rcpp_pchisq_upper(double q, double nu, double delta);
-RcppExport SEXP _NCdistributions_rcpp_pchisq_upper(SEXP qSEXP, SEXP nuSEXP, SEXP deltaSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
-    Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
-    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_pchisq_upper(q, nu, delta));
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_pchisq(q, nu, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 // rcpp_qchisq
-double rcpp_qchisq(double p, double nu, double delta);
-RcppExport SEXP _NCdistributions_rcpp_qchisq(SEXP pSEXP, SEXP nuSEXP, SEXP deltaSEXP) {
+NumericVector rcpp_qchisq(NumericVector p, double nu, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_qchisq(SEXP pSEXP, SEXP nuSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type nu(nuSEXP);
     Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_qchisq(p, nu, delta));
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_qchisq(p, nu, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -103,74 +93,77 @@ BEGIN_RCPP
 END_RCPP
 }
 // rcpp_pf
-double rcpp_pf(double q, double nu1, double nu2, double ncp);
-RcppExport SEXP _NCdistributions_rcpp_pf(SEXP qSEXP, SEXP nu1SEXP, SEXP nu2SEXP, SEXP ncpSEXP) {
+NumericVector rcpp_pf(NumericVector q, double nu1, double nu2, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_pf(SEXP qSEXP, SEXP nu1SEXP, SEXP nu2SEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type nu1(nu1SEXP);
     Rcpp::traits::input_parameter< double >::type nu2(nu2SEXP);
-    Rcpp::traits::input_parameter< double >::type ncp(ncpSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_pf(q, nu1, nu2, ncp));
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_pf(q, nu1, nu2, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 // rcpp_qf
-double rcpp_qf(double p, double nu1, double nu2, double ncp);
-RcppExport SEXP _NCdistributions_rcpp_qf(SEXP pSEXP, SEXP nu1SEXP, SEXP nu2SEXP, SEXP ncpSEXP) {
+NumericVector rcpp_qf(NumericVector p, double nu1, double nu2, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_qf(SEXP pSEXP, SEXP nu1SEXP, SEXP nu2SEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type nu1(nu1SEXP);
     Rcpp::traits::input_parameter< double >::type nu2(nu2SEXP);
-    Rcpp::traits::input_parameter< double >::type ncp(ncpSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_qf(p, nu1, nu2, ncp));
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_qf(p, nu1, nu2, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 // rcpp_pbeta
-double rcpp_pbeta(double q, double a, double b, double ncp);
-RcppExport SEXP _NCdistributions_rcpp_pbeta(SEXP qSEXP, SEXP aSEXP, SEXP bSEXP, SEXP ncpSEXP) {
+NumericVector rcpp_pbeta(NumericVector q, double a, double b, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_pbeta(SEXP qSEXP, SEXP aSEXP, SEXP bSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type a(aSEXP);
     Rcpp::traits::input_parameter< double >::type b(bSEXP);
-    Rcpp::traits::input_parameter< double >::type ncp(ncpSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_pbeta(q, a, b, ncp));
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_pbeta(q, a, b, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 // rcpp_qbeta
-double rcpp_qbeta(double p, double a, double b, double ncp);
-RcppExport SEXP _NCdistributions_rcpp_qbeta(SEXP pSEXP, SEXP aSEXP, SEXP bSEXP, SEXP ncpSEXP) {
+NumericVector rcpp_qbeta(NumericVector p, double a, double b, double delta, bool lower);
+RcppExport SEXP _NCdistributions_rcpp_qbeta(SEXP pSEXP, SEXP aSEXP, SEXP bSEXP, SEXP deltaSEXP, SEXP lowerSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type a(aSEXP);
     Rcpp::traits::input_parameter< double >::type b(bSEXP);
-    Rcpp::traits::input_parameter< double >::type ncp(ncpSEXP);
-    rcpp_result_gen = Rcpp::wrap(rcpp_qbeta(p, a, b, ncp));
+    Rcpp::traits::input_parameter< double >::type delta(deltaSEXP);
+    Rcpp::traits::input_parameter< bool >::type lower(lowerSEXP);
+    rcpp_result_gen = Rcpp::wrap(rcpp_qbeta(p, a, b, delta, lower));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
     {"_NCdistributions_rcpp_pt", (DL_FUNC) &_NCdistributions_rcpp_pt, 4},
-    {"_NCdistributions_rcpp_qt", (DL_FUNC) &_NCdistributions_rcpp_qt, 3},
-    {"_NCdistributions_rcpp_pchisq", (DL_FUNC) &_NCdistributions_rcpp_pchisq, 3},
-    {"_NCdistributions_rcpp_pchisq_upper", (DL_FUNC) &_NCdistributions_rcpp_pchisq_upper, 3},
-    {"_NCdistributions_rcpp_qchisq", (DL_FUNC) &_NCdistributions_rcpp_qchisq, 3},
+    {"_NCdistributions_rcpp_qt", (DL_FUNC) &_NCdistributions_rcpp_qt, 4},
+    {"_NCdistributions_rcpp_pchisq", (DL_FUNC) &_NCdistributions_rcpp_pchisq, 4},
+    {"_NCdistributions_rcpp_qchisq", (DL_FUNC) &_NCdistributions_rcpp_qchisq, 4},
     {"_NCdistributions_rcpp_chisq_ncp", (DL_FUNC) &_NCdistributions_rcpp_chisq_ncp, 3},
     {"_NCdistributions_rcpp_chisq_nu", (DL_FUNC) &_NCdistributions_rcpp_chisq_nu, 3},
-    {"_NCdistributions_rcpp_pf", (DL_FUNC) &_NCdistributions_rcpp_pf, 4},
-    {"_NCdistributions_rcpp_qf", (DL_FUNC) &_NCdistributions_rcpp_qf, 4},
-    {"_NCdistributions_rcpp_pbeta", (DL_FUNC) &_NCdistributions_rcpp_pbeta, 4},
-    {"_NCdistributions_rcpp_qbeta", (DL_FUNC) &_NCdistributions_rcpp_qbeta, 4},
+    {"_NCdistributions_rcpp_pf", (DL_FUNC) &_NCdistributions_rcpp_pf, 5},
+    {"_NCdistributions_rcpp_qf", (DL_FUNC) &_NCdistributions_rcpp_qf, 5},
+    {"_NCdistributions_rcpp_pbeta", (DL_FUNC) &_NCdistributions_rcpp_pbeta, 5},
+    {"_NCdistributions_rcpp_qbeta", (DL_FUNC) &_NCdistributions_rcpp_qbeta, 5},
     {NULL, NULL, 0}
 };
 
