@@ -125,3 +125,22 @@ qbeta_boost <- function(p, a, b, ncp = 0, lower.tail = TRUE) {
 find_chisq_ncp <- function(nu, q, p) {
   rcpp_chisq_ncp(nu, q, p)
 }
+
+#' Find degrees of freedom parameter
+#' @description Find the degrees of freedom parameter of a non-central 
+#'   Chi-squared distribution given a quantile and its corresponding probability.
+#'
+#' @param ncp non-centrality parameter, a non-negative number
+#' @param q a quantile
+#' @param p probability corresponding to the quantile \code{q}
+#'
+#' @return The degrees of freedom parameter of the non-central Chi-squared 
+#'   distribution with cumulative probability \code{p} at the quantile \code{q}.
+#' @export
+#'
+#' @examples 
+#' nu <- find_chisq_nu(10, 3, 0.1)
+#' pchisq(3, df = nu, ncp = 10) # should be 0.1
+find_chisq_nu <- function(ncp, q, p) {
+  rcpp_chisq_nu(ncp, q, p)
+}
