@@ -26,10 +26,27 @@ qt_boost <- function(p, nu, ncp = 0, lower.tail = TRUE) {
   rcpp_qt(p, nu, ncp, lower.tail)
 }
 
+#' The non-central Chi-squared distribution
+#' @description Distribution function and quantile function for the non-central 
+#'   Chi-squared distribution.
+#'
+#' @param q numeric vector of quantiles
+#' @param p numeric vector of probabilities
+#' @param nu degrees of freedom parameter, a positive number
+#' @param ncp non-centrality parameter, a non-negative number
+#' @param lower.tail Boolean, whether to use the complementary probabilities
+#'
+#' @return A numeric vector of probabilities (\code{pchisq_boost}) or a 
+#'   numeric vector of quantiles (\code{qchisq_boost}).
+#' @export
+#' 
+#' @name ChiSquaredDistribution
 pchisq_boost <- function(q, nu, ncp = 0, lower.tail = TRUE) {
   rcpp_pchisq(q, nu, ncp, lower.tail)
 }
 
+#' @rdname ChiSquaredDistribution
+#' @export
 qchisq_boost <- function(p, nu, ncp = 0, lower.tail = TRUE) {
   rcpp_qchisq(p, nu, ncp, lower.tail)
 }
