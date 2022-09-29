@@ -81,10 +81,27 @@ qf_boost <- function(p, nu1, nu2, ncp = 0, lower.tail = TRUE) {
   rcpp_pf(p, nu1, nu2, ncp, lower.tail)
 }
 
+#' The non-central Beta distribution
+#' @description Distribution function and quantile function for the non-central 
+#'   Beta distribution.
+#'
+#' @param q numeric vector of quantiles
+#' @param p numeric vector of probabilities
+#' @param a,b shape parameters, positive numbers
+#' @param ncp non-centrality parameter, a non-negative number
+#' @param lower.tail Boolean, whether to use the complementary probabilities
+#'
+#' @return A numeric vector of probabilities (\code{pbeta_boost}) or a 
+#'   numeric vector of quantiles (\code{qbeta_boost}).
+#' @export
+#' 
+#' @name BetaDistribution
 pbeta_boost <- function(q, a, b, ncp = 0, lower.tail = TRUE) {
   rcpp_pf(q, a, b, ncp, lower.tail)
 }
 
+#' @rdname BetaDistribution
+#' @export
 qbeta_boost <- function(p, a, b, ncp = 0, lower.tail = TRUE) {
   rcpp_pf(p, a, b, ncp, lower.tail)
 }
